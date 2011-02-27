@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_attached_file :avatar, :styles => { :thumb => "100x100>" }
+  has_attached_file :avatar
   
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
