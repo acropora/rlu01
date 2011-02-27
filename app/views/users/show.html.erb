@@ -1,0 +1,22 @@
+<table class="profile" summary="Profile information">
+	<tr>
+		<td class="main">
+			<h1>
+				<%= image_tag @user.avatar.url(:thumb) %>
+				<%= @user.name %>
+			</h1>
+			<table class="posts" summary="User posts">
+				<%= render @posts %>
+			</table>
+			<% if current_user?(@user) %>
+				<h3 class="posts">What's on your mind?</h3>
+				<%= render 'shared/post_form' %>
+			<% end %>
+		</td>
+		<td class="sidebar round">
+			<strong>Name</strong> <%= @user.name %><br />
+			<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+			<strong>Posts</strong> <%= @user.posts.count %>
+		</td>
+	</tr>
+</table>
